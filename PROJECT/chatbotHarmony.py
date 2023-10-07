@@ -1,3 +1,4 @@
+
 import random
 import spacy
 import requests
@@ -97,7 +98,7 @@ def start_relaxation_session():
             print("Chatbot: I hope you're feeling more relaxed. If you need another session, just ask!")
             break
         else:
-            # Select a random relaxation script
+            
             script = random.choice(guided_relaxation_scripts)
             print("Chatbot:", script)
 def get_therapist_location(location_name):
@@ -114,7 +115,7 @@ def get_therapist_location(location_name):
         data = response.json()
         
         if data:
-            # Extract latitude and longitude from the first result
+            # Get latitude and longitude from the first result
             lat = data[0]["lat"]
             lon = data[0]["lon"]
             
@@ -139,8 +140,8 @@ def best_restaurant(location_name):
         response = requests.get(nominatim_url, params=params)
         data = response.json()
         
-        if data and len(data) > 0:
-            # Extract latitude and longitude from the first result
+        if data and len(data) > 0
+             
             lat = data[0]["lat"]
             lon = data[0]["lon"]
             
@@ -200,7 +201,7 @@ def get_response(user_input):
 
 
     best_match = ""
-    best_certainty = 0.5  # Lowered the threshold to 0.5
+    best_certainty = 0.5
     
     for keyword in responses:
         similarity = message_certainty(user_input, keyword)
@@ -208,7 +209,7 @@ def get_response(user_input):
             best_match = keyword
             best_certainty = similarity
     
-    if best_certainty >= 0.5:  # Adjusted the threshold here as well
+    if best_certainty >= 0.5:
         return random.choice(responses[best_match])
     
     return "I'm not sure how to respond to that."
