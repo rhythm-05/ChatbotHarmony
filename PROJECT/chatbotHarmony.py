@@ -140,7 +140,7 @@ def best_restaurant(location_name):
         response = requests.get(nominatim_url, params=params)
         data = response.json()
         
-        if data and len(data) > 0
+        if data and len(data) > 0:
              
             lat = data[0]["lat"]
             lon = data[0]["lon"]
