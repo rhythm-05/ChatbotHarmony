@@ -39,6 +39,7 @@ responses = {
     "what's the weather": ["I can check the weather for you. Please specify a location."],
     "how is the weather today": ["I can check the weather for you. Please specify a location."],
     "sad and Hungry": ["I can help you find a restaurant nearby, please provide your location"],
+    "eat something": ["I can help you find a restaurant nearby, please provide your location"],
     "tell me the weather today":["I can check the weather for you. Please specify a location."],
     "tell me about stress" : ["Stress is a common feeling among students. It can be caused by various factors, including academic pressure, social expectations, financial concerns, and personal challenges. ", "To manage stress, it's important to practice relaxation techniques such as deep breathing, mindfulness meditation, exercise, and spending time doing activities that bring joy and calmness...."],
     "how to handle anxiety": ["Anxiety is a normal emotion, but excessive anxiety can be overwhelming and negatively impact one's daily life, making it essential to seek support and strategies for managing it effectively....", "If you're struggling with anxiety, consider talking to a counselor or therapist..."],
@@ -180,6 +181,13 @@ def get_response(user_input):
         else:
             return "You didn't specify a location."
     if "hungry" in user_input:
+         
+         location = input("I think I can help you with that, please provide your location").strip()
+         if location:
+            return best_restaurant(location)
+         else:
+            return "You didn't specify a location."
+    if "eat" in user_input:
          
          location = input("I think I can help you with that, please provide your location").strip()
          if location:
